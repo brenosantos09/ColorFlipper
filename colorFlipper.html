@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Color Flipper</title>
+	<style>
+		
+        body{
+        	display: flex;
+        	justify-content: center;
+        	align-items: center;
+        	height: 100vh;
+        }
+
+        .container{
+        	display: flex;
+        	flex-direction: column;
+        	justify-content: center;
+        }
+        .container h1{
+        	background-color: black;
+        	color: white;
+        	padding: 5px 1em;
+        	border-radius: 8px;
+
+        }
+
+        button{
+	         padding: 0.5em 2em;
+        	display: block;
+        	margin: auto;
+        	border: 2px solid black;
+        	border-radius: 8px;
+        	background: none;
+        	text-transform: uppercase;
+        	cursor: pointer;
+        	margin-top: 10px;
+
+        }
+        button:hover{
+        	background-color: gray;
+        }
+
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+	   <h1>Background color : <span id="colorCode"></span></h1>
+	   <button type="button" id="btn">Click me</button>
+	</div>
+
+
+	<script>
+		
+		let btn = document.querySelector("#btn");
+		let colorCode = document.querySelector("#colorCode");
+		btn.addEventListener("click", ()=>{
+			let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+			document.body.style.backgroundColor = randomColor;
+			colorCode.innerHTML = randomColor;
+		})
+
+	</script>
+</body>
+</html>
